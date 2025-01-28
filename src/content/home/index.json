@@ -1,95 +1,81 @@
 {
-  "title": "{{BRAND_NAME}}",
-  "subtitle": "{{MAIN_VALUE_PROPOSITION}}",
-  "description": "{{META_DESCRIPTION}}",
+  "title": "Allofsooq - Voyage & Découvertes",
+  "subtitle": "Votre guide pour explorer le monde et vivre des expériences uniques",
+  "description": "Allofsooq est votre plateforme dédiée aux voyages, à la découverte de la nature, aux activités de loisirs et aux expériences gastronomiques. Trouvez des conseils, des guides et des idées pour vos prochaines aventures.",
   "blogCategories": [
     {
-      "id": "transport-medical",
-      "title": "Transport Médical",
-      "description": "Tout savoir sur le transport médical conventionné dans le Buëch",
-      "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600",
-      "icon": "Stethoscope"
+      "id": "voyage-tourisme",
+      "title": "Voyage & Tourisme",
+      "description": "Découvrez des destinations incroyables à travers le monde, des villes aux villages pittoresques.",
+      "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=600",
+      "icon": "Globe"
     },
     {
-      "id": "decouverte-buech",
-      "title": "Découverte du Buëch",
-      "description": "Explorez les trésors cachés de notre territoire",
-      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600",
-      "icon": "Mountain"
-    },
-    {
-      "id": "evenements",
-      "title": "Événements & Actualités",
-      "description": "L'agenda des événements et actualités du Buëch",
-      "image": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600",
-      "icon": "Calendar"
-    },
-    {
-      "id": "guides-pratiques",
-      "title": "Guides Pratiques",
-      "description": "Conseils et informations pratiques pour vos déplacements",
-      "image": "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=600",
-      "icon": "BookOpen"
-    },
-    {
-      "id": "patrimoine-culture",
-      "title": "Patrimoine & Culture",
-      "description": "Histoire et culture du Buëch",
-      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600",
-      "icon": "Landmark"
-    },
-    {
-      "id": "sports-loisirs",
-      "title": "Sports & Loisirs",
-      "description": "Activités sportives et de loisirs dans le Buëch",
+      "id": "sport-loisirs",
+      "title": "Sport & Loisirs",
+      "description": "Explorez des activités sportives et de loisirs pour rendre vos voyages inoubliables.",
       "image": "https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=600",
-      "icon": "Mountain"
+      "icon": "Hiking"
+    },
+    {
+      "id": "nature",
+      "title": "Nature",
+      "description": "Partez à la découverte des merveilles naturelles et des destinations écotouristiques.",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600",
+      "icon": "Tree"
+    },
+    {
+      "id": "gastronomie",
+      "title": "Gastronomie",
+      "description": "Dégustez les saveurs locales et explorez les spécialités culinaires du monde entier.",
+      "image": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600",
+      "icon": "Utensils"
     }
   ],
-  "heroImage": "{{HERO_IMAGE_URL}}",
+  "heroImage": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=1200",
   "features": [
     {
       "icon": "Shield",
-      "title": "{{TRUST_FEATURE_1}}",
-      "description": "{{TRUST_DESCRIPTION_1}}"
+      "title": "Conseils de Voyage Fiables",
+      "description": "Des informations vérifiées pour des voyages en toute sécurité."
     },
     {
       "icon": "Award",
-      "title": "{{TRUST_FEATURE_2}}",
-      "description": "{{TRUST_DESCRIPTION_2}}"
+      "title": "Destinations Uniques",
+      "description": "Découvrez des lieux hors des sentiers battus."
     },
     {
       "icon": "Star",
-      "title": "{{TRUST_FEATURE_3}}",
-      "description": "{{TRUST_DESCRIPTION_3}}"
+      "title": "Expériences Authentiques",
+      "description": "Vivez des expériences culturelles et culinaires mémorables."
     }
   ],
   "mainServices": [
     {
       "id": "service1",
-      "title": "{{SERVICE_1_TITLE}}",
-      "description": "{{SERVICE_1_DESCRIPTION}}",
-      "icon": "{{SERVICE_1_ICON}}",
+      "title": "Guides de Voyage",
+      "description": "Des guides détaillés pour planifier vos aventures.",
+      "icon": "Map",
       "link": {
         "text": "En savoir plus →",
-        "url": "/services/service1"
+        "url": "/services/guides-voyage"
       }
     },
     {
       "id": "service2",
-      "title": "{{SERVICE_2_TITLE}}",
-      "description": "{{SERVICE_2_DESCRIPTION}}",
-      "icon": "{{SERVICE_2_ICON}}",
+      "title": "Conseils Pratiques",
+      "description": "Astuces pour voyager malin et sans stress.",
+      "icon": "Lightbulb",
       "link": {
         "text": "Découvrir →",
-        "url": "/services/service2"
+        "url": "/services/conseils-pratiques"
       }
     }
   ],
   "aboutSection": {
-    "title": "{{ABOUT_TITLE}}",
-    "description": "{{ABOUT_DESCRIPTION}}",
-    "image": "{{ABOUT_IMAGE}}",
+    "title": "À Propos de Nous",
+    "description": "Allofsooq est une plateforme dédiée aux voyageurs curieux, offrant des conseils, des guides et des idées pour explorer le monde.",
+    "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=800",
     "link": {
       "text": "Notre histoire →",
       "url": "/about"
@@ -97,92 +83,92 @@
   },
   "mainCategories": [
     {
-      "title": "{{CATEGORY_1_TITLE}}",
-      "description": "{{CATEGORY_1_DESCRIPTION}}",
-      "image": "{{CATEGORY_1_IMAGE}}",
-      "link": "/categories/category1"
+      "title": "Voyage & Tourisme",
+      "description": "Explorez nos guides de destinations populaires et insolites.",
+      "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=600",
+      "link": "/categories/voyage-tourisme"
     },
     {
-      "title": "{{CATEGORY_2_TITLE}}",
-      "description": "{{CATEGORY_2_DESCRIPTION}}",
-      "image": "{{CATEGORY_2_IMAGE}}",
-      "link": "/categories/category2"
+      "title": "Nature",
+      "description": "Découvrez les merveilles naturelles et les destinations écotouristiques.",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600",
+      "link": "/categories/nature"
     },
     {
-      "title": "{{CATEGORY_3_TITLE}}",
-      "description": "{{CATEGORY_3_DESCRIPTION}}",
-      "image": "{{CATEGORY_3_IMAGE}}",
-      "link": "/categories/category3"
+      "title": "Gastronomie",
+      "description": "Dégustez les saveurs locales et explorez les spécialités culinaires.",
+      "image": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600",
+      "link": "/categories/gastronomie"
     }
   ],
   "whyChooseUs": {
-    "title": "Pourquoi Nous Choisir ?",
-    "subtitle": "{{WHY_CHOOSE_US_SUBTITLE}}",
+    "title": "Pourquoi Choisir Allofsooq ?",
+    "subtitle": "Votre partenaire de voyage pour des expériences inoubliables",
     "features": [
       {
         "icon": "Trophy",
-        "title": "{{ADVANTAGE_1_TITLE}}",
-        "description": "{{ADVANTAGE_1_DESCRIPTION}}"
+        "title": "Expertise",
+        "description": "Des années d'expérience dans le domaine du voyage."
       },
       {
         "icon": "CheckCircle",
-        "title": "{{ADVANTAGE_2_TITLE}}",
-        "description": "{{ADVANTAGE_2_DESCRIPTION}}"
+        "title": "Fiabilité",
+        "description": "Des informations vérifiées et à jour."
       },
       {
         "icon": "HeartHandshake",
-        "title": "{{ADVANTAGE_3_TITLE}}",
-        "description": "{{ADVANTAGE_3_DESCRIPTION}}"
+        "title": "Engagement",
+        "description": "Nous nous engageons à rendre vos voyages mémorables."
       }
     ]
   },
   "testimonials": [
     {
-      "text": "{{TESTIMONIAL_1_TEXT}}",
-      "author": "{{TESTIMONIAL_1_AUTHOR}}",
-      "avatar": "{{TESTIMONIAL_1_AVATAR}}",
+      "text": "Allofsooq m'a aidé à découvrir des destinations incroyables que je n'aurais jamais trouvées seul !",
+      "author": "Jean D.",
+      "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
       "rating": 5
     },
     {
-      "text": "{{TESTIMONIAL_2_TEXT}}",
-      "author": "{{TESTIMONIAL_2_AUTHOR}}",
-      "avatar": "{{TESTIMONIAL_2_AVATAR}}",
+      "text": "Les guides pratiques sont très utiles pour organiser mes voyages en toute sérénité.",
+      "author": "Marie L.",
+      "avatar": "https://randomuser.me/api/portraits/women/2.jpg",
       "rating": 5
     }
   ],
   "contact": {
-    "title": "{{CONTACT_CTA_TITLE}}",
-    "description": "{{CONTACT_CTA_DESCRIPTION}}",
+    "title": "Contactez-Nous",
+    "description": "Vous avez des questions ou besoin de conseils ? Nous sommes là pour vous aider.",
     "methods": [
       {
         "type": "primary",
-        "text": "{{PRIMARY_CONTACT_TEXT}}",
-        "icon": "{{PRIMARY_CONTACT_ICON}}",
-        "link": "{{PRIMARY_CONTACT_LINK}}"
+        "text": "Envoyer un message",
+        "icon": "MessageCircle",
+        "link": "/contact"
       },
       {
         "type": "secondary",
-        "text": "{{SECONDARY_CONTACT_TEXT}}",
-        "icon": "{{SECONDARY_CONTACT_ICON}}",
-        "link": "{{SECONDARY_CONTACT_LINK}}"
+        "text": "Nous appeler",
+        "icon": "Phone",
+        "link": "tel:+33123456789"
       }
     ]
   },
   "quickLinks": [
     {
-      "title": "{{QUICK_LINK_1_TITLE}}",
-      "description": "{{QUICK_LINK_1_DESCRIPTION}}",
-      "link": "{{QUICK_LINK_1_URL}}"
+      "title": "Destinations Populaires",
+      "description": "Découvrez nos destinations les plus prisées.",
+      "link": "/destinations-populaires"
     },
     {
-      "title": "{{QUICK_LINK_2_TITLE}}",
-      "description": "{{QUICK_LINK_2_DESCRIPTION}}",
-      "link": "{{QUICK_LINK_2_URL}}"
+      "title": "Conseils pour Voyager",
+      "description": "Tous nos conseils pour un voyage réussi.",
+      "link": "/conseils-voyage"
     },
     {
-      "title": "{{QUICK_LINK_3_TITLE}}",
-      "description": "{{QUICK_LINK_3_DESCRIPTION}}",
-      "link": "{{QUICK_LINK_3_URL}}"
+      "title": "À Propos de Nous",
+      "description": "En savoir plus sur Allofsooq.",
+      "link": "/about"
     }
   ]
 }
