@@ -1,0 +1,406 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import CTASection from '../components/CTASection.astro';
+import ExperienceIcon from '../components/icons/ExperienceIcon.astro';
+import VehicleIcon from '../components/icons/VehicleIcon.astro';
+import PriceIcon from '../components/icons/PriceIcon.astro';
+
+const title = "Taxi Buëch - Votre Taxi Local dans Tout le Buëch | Laragne, Serres, Orpierre";
+const description = "Service de taxi professionnel couvrant tout le territoire du Buëch : Laragne-Montéglin, Serres, Orpierre, et les villages environnants. Transport médical, touristique et professionnel 24/7.";
+---
+
+<Layout title={title}>
+  <main>
+    <Hero
+      title="Votre Taxi Local dans le Buëch"
+      subtitle="Un service de proximité dans tout le territoire"
+      image="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000"
+    />
+
+    <section class="intro">
+      <div class="intro-content">
+        <h2>Le Buëch, Notre Territoire d'Excellence</h2>
+        <p>Au cœur des Hautes-Alpes, entre Alpes et Provence, le Buëch est un territoire d'exception que nous connaissons parfaitement. Notre service de taxi dessert l'ensemble de cette région, offrant :</p>
+        <FeatureGrid
+          features={[
+            {
+              icon: 'experience',
+              title: "Expertise Locale",
+              description: "Connaissance approfondie du territoire et de ses spécificités"
+            },
+            {
+              icon: 'vehicle',
+              title: "Couverture Complète",
+              description: "Service disponible dans tous les villages du Buëch"
+            },
+            {
+              icon: 'price',
+              title: "Tarifs Adaptés",
+              description: "Grille tarifaire transparente selon les zones"
+            }
+          ]}
+        />
+      </div>
+    </section>
+
+    <section class="main-cities">
+      <h2>Villes Principales</h2>
+      <div class="cities-grid">
+        <article class="city-card">
+          <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=600" alt="Laragne-Montéglin" />
+          <div class="city-content">
+            <h3>Taxi Laragne-Montéglin</h3>
+            <p>Centre économique du Buëch, Laragne-Montéglin est le cœur de notre activité. Nous proposons :</p>
+            <ul>
+              <li><a href="/services/medical">Transport médical</a> vers le centre médical</li>
+              <li>Desserte du <a href="/blog/marche-laragne">marché provençal</a></li>
+              <li>Liaison avec la <a href="/specialites/liaisons">gare SNCF</a></li>
+            </ul>
+            <a href="/zones/taxi-laragne-monteglin" class="learn-more">Découvrir nos services à Laragne →</a>
+          </div>
+        </article>
+
+        <article class="city-card">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600" alt="Serres" />
+          <div class="city-content">
+            <h3>Taxi Serres</h3>
+            <p>Porte des Hautes-Alpes, Serres est un point stratégique pour :</p>
+            <ul>
+              <li><a href="/services/touristique">Excursions touristiques</a></li>
+              <li>Accès au <a href="/blog/base-nautique-serres">plan d'eau</a></li>
+              <li><a href="/services/medical">Consultations médicales</a></li>
+            </ul>
+            <a href="/zones/taxi-serres" class="learn-more">Nos services à Serres →</a>
+          </div>
+        </article>
+
+        <article class="city-card">
+          <img src="https://images.unsplash.com/photo-1458442310124-dde6edb43d10?auto=format&fit=crop&w=600" alt="Orpierre" />
+          <div class="city-content">
+            <h3>Taxi Orpierre</h3>
+            <p>Village médiéval et site d'escalade renommé, nous assurons :</p>
+            <ul>
+              <li>Transport vers les <a href="/blog/sites-escalade-orpierre">sites d'escalade</a></li>
+              <li>Visites du <a href="/blog/patrimoine-orpierre">patrimoine historique</a></li>
+              <li><a href="/services/groupes">Transport de groupes</a></li>
+            </ul>
+            <a href="/zones/taxi-orpierre" class="learn-more">Explorer Orpierre →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="villages">
+      <h2>Villages du Buëch</h2>
+      <div class="villages-grid">
+        <div class="village-column">
+          <h3>Buëch-Dévoluy</h3>
+          <div class="village-card">
+            <h4>Taxi Eyguians</h4>
+            <p>Village authentique au cœur du Buëch</p>
+            <ul>
+              <li><a href="/services/medical">Transport médical</a></li>
+              <li><a href="/blog/marche-eyguians">Marché local</a></li>
+            </ul>
+            <a href="/zones/taxi-eyguians" class="village-link">En savoir plus →</a>
+          </div>
+
+          <div class="village-card">
+            <h4>Taxi Lagrand</h4>
+            <p>Village perché avec vue panoramique</p>
+            <ul>
+              <li><a href="/blog/patrimoine-lagrand">Sites historiques</a></li>
+              <li><a href="/services/touristique">Circuits touristiques</a></li>
+            </ul>
+            <a href="/zones/taxi-lagrand" class="village-link">Découvrir →</a>
+          </div>
+        </div>
+
+        <div class="village-column">
+          <h3>Vallée du Buëch</h3>
+          <div class="village-card">
+            <h4>Taxi Garde-Colombe</h4>
+            <p>Commune nouvelle dynamique</p>
+            <ul>
+              <li><a href="/services/scolaire">Transport scolaire</a></li>
+              <li><a href="/blog/activites-garde-colombe">Activités locales</a></li>
+            </ul>
+            <a href="/zones/taxi-garde-colombe" class="village-link">Explorer →</a>
+          </div>
+
+          <div class="village-card">
+            <h4>Taxi Trescléoux</h4>
+            <p>Charme provençal préservé</p>
+            <ul>
+              <li><a href="/blog/patrimoine-trescleoux">Patrimoine local</a></li>
+              <li><a href="/services/medical">Services médicaux</a></li>
+            </ul>
+            <a href="/zones/taxi-trescleoux" class="village-link">Visiter →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-overview">
+      <h2>Nos Services dans le Buëch</h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <h3>Transport Médical</h3>
+          <p>Conventionné toutes caisses pour vos rendez-vous médicaux dans tout le Buëch</p>
+          <a href="/specialites/medical" class="service-link">En savoir plus →</a>
+        </div>
+        <div class="service-item">
+          <h3>Liaisons Gares</h3>
+          <p>Connexions avec les gares de Gap, Veynes et Sisteron</p>
+          <a href="/specialites/liaisons" class="service-link">Voir les destinations →</a>
+        </div>
+        <div class="service-item">
+          <h3>Excursions</h3>
+          <p>Découverte des trésors cachés du Buëch</p>
+          <a href="/specialites/excursions" class="service-link">Nos circuits →</a>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Réserver Votre Taxi dans le Buëch"
+      subtitle="Service disponible 24h/24 et 7j/7 dans toute la région"
+    />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 2rem;
+    margin: 0 -1rem 4rem -1rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .intro {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .feature {
+    padding: 2rem;
+    background: rgb(var(--card-bg));
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .city-card {
+    background: rgb(var(--card-bg));
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgb(var(--border-color));
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .city-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .city-content {
+    padding: 2rem;
+  }
+
+  .city-content h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .city-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .city-content li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .city-content li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--accent));
+  }
+
+  .villages {
+    background: rgb(var(--bg-secondary));
+    padding: 4rem 2rem;
+    margin: 4rem -1rem;
+  }
+
+  .villages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    margin-top: 2rem;
+  }
+
+  .village-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .village-card h4 {
+    color: rgb(var(--accent));
+    margin-bottom: 0.5rem;
+  }
+
+  .village-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .village-card li {
+    margin: 0.5rem 0;
+  }
+
+  .services-overview {
+    padding: 4rem 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .service-item {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+    text-align: center;
+  }
+
+  .service-item h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .learn-more, .village-link, .service-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: rgb(var(--accent));
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: rgb(var(--accent-dark));
+  }
+
+  .cta-button.secondary {
+    background: transparent;
+    border: 2px solid rgb(var(--accent));
+    color: rgb(var(--accent));
+  }
+
+  .cta-button.secondary:hover {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(var(--accent-dark));
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .villages-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

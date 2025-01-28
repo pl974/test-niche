@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import CTASection from '../components/CTASection.astro';
+import VehicleIcon from '../components/icons/VehicleIcon.astro';
+import ConventionIcon from '../components/icons/ConventionIcon.astro';
+import ComfortIcon from '../components/icons/ComfortIcon.astro';
+import ClockIcon from '../components/icons/ClockIcon.astro';
+
+const title = "Services de Taxi dans le Buëch | Transport Médical, Touristique & Professionnel";
+const description = "Services de taxi personnalisés dans le Buëch : transport médical conventionné, liaisons gares & aéroports, excursions touristiques. Disponible 24/7 à Laragne-Montéglin, Serres et tout le territoire.";
+---
+
+<Layout title={title}>
+  <main>
+    <Hero
+      title="Services de Taxi dans le Buëch"
+      subtitle="Transport sur mesure dans les Hautes-Alpes"
+      image="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2000"
+    />
+
+    <section class="services-grid">
+      <ServiceCard
+        title="Transport Médical Conventionné"
+        description="Agréé toutes caisses d'assurance maladie, nous assurons vos transports médicaux vers les centres de soins du Buëch et des Hautes-Alpes :"
+        icon="convention"
+        href="/specialites/medical"
+        features={[{
+          icon: 'convention',
+          title: "Conventionné Toutes Caisses",
+          description: "Agrément sécurité sociale et mutuelles"
+        },
+        {
+          icon: 'clock',
+          title: "Disponibilité 24/7",
+          description: "Service d'urgence permanent"
+        },
+        {
+          icon: 'comfort',
+          title: "Véhicules Adaptés",
+          description: "Confort et accessibilité garantis"
+        }]}
+      />
+
+      <article class="service-card scolaire">
+        <VehicleIcon />
+        <h2>Transport Scolaire</h2>
+        <p>Service de transport scolaire sécurisé et ponctuel pour les établissements du Buëch :</p>
+        <ul>
+          <li>Collège de <a href="/zones/taxi-laragne-monteglin#college">Laragne-Montéglin</a></li>
+          <li>Écoles primaires de <a href="/zones/taxi-garde-colombe">Garde-Colombe</a></li>
+          <li>Établissements de <a href="/zones/taxi-serres">Serres</a></li>
+        </ul>
+        <a href="/services/scolaire" class="learn-more">Découvrir nos services scolaires →</a>
+      </article>
+
+      <article class="service-card tourisme">
+        <ComfortIcon />
+        <h2>Excursions Touristiques</h2>
+        <p>Découvrez les trésors du Buëch avec un chauffeur local expérimenté :</p>
+        <ul>
+          <li>Sites d'escalade d'<a href="/zones/taxi-orpierre">Orpierre</a></li>
+          <li>Villages perchés des <a href="/blog/decouvrir-baronnies-provencales">Baronnies Provençales</a></li>
+          <li>Randonnées dans le <a href="/blog/massif-devoluy-guide">Dévoluy</a></li>
+        </ul>
+        <a href="/services/touristique" class="learn-more">Explorer nos circuits touristiques →</a>
+      </article>
+
+      <article class="service-card gares">
+        <h2>Liaisons Gares & Aéroports</h2>
+        <p>Transport confortable vers toutes les gares et aéroports de la région :</p>
+        <ul>
+          <li>Gare de <a href="/specialites/liaisons#gap">Gap</a></li>
+          <li>Gare TGV d'<a href="/specialites/liaisons#aix">Aix-en-Provence</a></li>
+          <li>Aéroport <a href="/specialites/liaisons#marseille">Marseille Provence</a></li>
+        </ul>
+        <a href="/specialites/liaisons" class="learn-more">Voir nos destinations →</a>
+      </article>
+
+      <article class="service-card groupes">
+        <h2>Transport de Groupes</h2>
+        <p>Solutions adaptées pour vos déplacements en groupe dans le Buëch :</p>
+        <ul>
+          <li>Événements à <a href="/zones/taxi-laragne-monteglin">Laragne-Montéglin</a></li>
+          <li>Mariages dans les <a href="/blog/lieux-reception-buech">villages du Buëch</a></li>
+          <li>Séminaires d'entreprise</li>
+        </ul>
+        <a href="/services/groupes" class="learn-more">Options pour groupes →</a>
+      </article>
+
+      <article class="service-card professionnel">
+        <h2>Transport Professionnel</h2>
+        <p>Service premium pour vos déplacements d'affaires :</p>
+        <ul>
+          <li>Liaisons vers <a href="/blog/zones-activite-buech">zones d'activités</a></li>
+          <li>Rendez-vous professionnels</li>
+          <li>Congrès et salons</li>
+        </ul>
+        <a href="/services/professionnel" class="learn-more">Services professionnels →</a>
+      </article>
+    </section>
+
+    <section class="zone-coverage">
+      <h2>Zone de Service dans le Buëch</h2>
+      <p>Notre service de taxi couvre l'ensemble du territoire du Buëch :</p>
+      
+      <div class="zones-list">
+        <div class="zone-column">
+          <h3>Buëch-Dévoluy</h3>
+          <ul>
+            <li><a href="/zones/taxi-laragne-monteglin">Laragne-Montéglin</a></li>
+            <li><a href="/zones/taxi-garde-colombe">Garde-Colombe</a></li>
+            <li><a href="/zones/taxi-eyguians">Eyguians</a></li>
+            <li><a href="/zones/taxi-trescleoux">Trescléoux</a></li>
+          </ul>
+        </div>
+        
+        <div class="zone-column">
+          <h3>Serres-Rosanais</h3>
+          <ul>
+            <li><a href="/zones/taxi-serres">Serres</a></li>
+            <li><a href="/zones/taxi-rosans">Rosans</a></li>
+            <li><a href="/zones/taxi-orpierre">Orpierre</a></li>
+            <li><a href="/zones/taxi-savournon">Savournon</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Réserver Votre Taxi dans le Buëch"
+      subtitle="Service disponible 24h/24 et 7j/7"
+    />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2000');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 2rem;
+    margin: 0 -1rem 4rem -1rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-card {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .service-card h2 {
+    color: rgb(var(--accent));
+    margin: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  .service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .service-card li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .service-card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--accent));
+  }
+
+  .learn-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: rgb(var(--accent));
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .zone-coverage {
+    background: rgb(var(--bg-secondary));
+    padding: 4rem 2rem;
+    margin: 4rem -1rem;
+    text-align: center;
+  }
+
+  .zones-list {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+  }
+
+  .zone-column h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .zone-column ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .zone-column li {
+    margin: 0.5rem 0;
+  }
+
+  .zone-column a {
+    color: rgb(var(--text-primary));
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .zone-column a:hover {
+    color: rgb(var(--accent));
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: rgb(var(--accent-dark));
+  }
+
+  .cta-button.secondary {
+    background: transparent;
+    border: 2px solid rgb(var(--accent));
+    color: rgb(var(--accent));
+  }
+
+  .cta-button.secondary:hover {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .zones-list {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

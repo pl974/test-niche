@@ -1,0 +1,471 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import CTASection from '../components/CTASection.astro';
+import NewsletterSection from '../components/NewsletterSection.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ConventionIcon from '../components/icons/ConventionIcon.astro';
+import ClockIcon from '../components/icons/ClockIcon.astro';
+import ComfortIcon from '../components/icons/ComfortIcon.astro';
+
+const title = "Taxi Buëch - Services Spécialisés | Transport Médical Conventionné & Liaisons";
+const description = "Services de taxi spécialisés dans le Buëch : transport médical conventionné toutes caisses, liaisons gares/aéroports, excursions touristiques et événements spéciaux. Service professionnel 24/7.";
+---
+
+<Layout title={title}>
+  <main>
+    <Hero
+      title="Services Spécialisés de Taxi dans le Buëch"
+      subtitle="Des solutions de transport adaptées à vos besoins spécifiques"
+      image="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2000"
+    />
+
+    <section class="medical-transport">
+      <div class="section-content">
+        <h2>Transport Médical Conventionné</h2>
+        <FeatureGrid
+          features={[
+            {
+              icon: 'convention',
+              title: "Conventionné Toutes Caisses",
+              description: "Agrément sécurité sociale et mutuelles"
+            },
+            {
+              icon: 'clock',
+              title: "Disponibilité 24/7",
+              description: "Service d'urgence permanent"
+            },
+            {
+              icon: 'comfort',
+              title: "Véhicules Adaptés",
+              description: "Confort et accessibilité garantis"
+            }
+          ]}
+        />
+        <div class="medical-details">
+          <div class="detail-card">
+            <h3>Centres Médicaux Desservis</h3>
+            <ul>
+              <li><a href="/blog/centre-medical-gap">Centre Hospitalier de Gap</a></li>
+              <li><a href="/blog/clinique-sisteron">Clinique de Sisteron</a></li>
+              <li>Cabinet médical de <a href="/zones/taxi-laragne-monteglin">Laragne-Montéglin</a></li>
+              <li>Centre de santé de <a href="/zones/taxi-serres">Serres</a></li>
+            </ul>
+          </div>
+          <div class="detail-card">
+            <h3>Types de Transport</h3>
+            <ul>
+              <li>Consultations médicales</li>
+              <li>Hospitalisations</li>
+              <li>Dialyse et chimiothérapie</li>
+              <li>Rééducation et kinésithérapie</li>
+            </ul>
+          </div>
+        </div>
+        <a href="/specialites/medical" class="learn-more">En savoir plus sur le transport médical →</a>
+      </div>
+    </section>
+
+    <section class="stations-airports">
+      <div class="section-content">
+        <h2>Liaisons Gares & Aéroports</h2>
+        <div class="transport-grid">
+          <div class="transport-card">
+            <h3>Gares SNCF</h3>
+            <ul>
+              <li><a href="/blog/gare-gap">Gare de Gap</a> - TER vers Grenoble</li>
+              <li><a href="/blog/gare-veynes">Gare de Veynes</a> - Correspondances Marseille</li>
+              <li>Gare TGV d'<a href="/blog/gare-aix">Aix-en-Provence</a></li>
+              <li>Gare de <a href="/blog/gare-sisteron">Sisteron</a></li>
+            </ul>
+            <p class="info">Prise en charge à domicile dans tout le <a href="/zones">Buëch</a></p>
+          </div>
+          <div class="transport-card">
+            <h3>Aéroports</h3>
+            <ul>
+              <li><a href="/blog/aeroport-marseille">Aéroport Marseille Provence</a></li>
+              <li>Aéroport de <a href="/blog/aeroport-nice">Nice Côte d'Azur</a></li>
+              <li>Aéroport <a href="/blog/aeroport-grenoble">Grenoble Alpes Isère</a></li>
+              <li>Aéroport de <a href="/blog/aeroport-turin">Turin-Caselle</a></li>
+            </ul>
+            <p class="info">Service de navette régulier depuis <a href="/zones/taxi-laragne-monteglin">Laragne</a></p>
+          </div>
+        </div>
+        <a href="/specialites/liaisons" class="learn-more">Découvrir nos services de liaison →</a>
+      </div>
+    </section>
+
+    <section class="tourism">
+      <div class="section-content">
+        <h2>Excursions Touristiques</h2>
+        <div class="destinations-grid">
+          <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1458442310124-dde6edb43d10?auto=format&fit=crop&w=600" alt="Orpierre" />
+            <div class="destination-content">
+              <h3>Circuit Escalade Orpierre</h3>
+              <p>Découvrez le site d'escalade mondialement reconnu d'<a href="/zones/taxi-orpierre">Orpierre</a></p>
+              <ul>
+                <li>Transport depuis votre hébergement</li>
+                <li>Équipement sécurisé</li>
+                <li>Horaires flexibles</li>
+              </ul>
+            </div>
+          </article>
+          <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600" alt="Dévoluy" />
+            <div class="destination-content">
+              <h3>Massif du Dévoluy</h3>
+              <p>Randonnées et sports d'hiver dans le <a href="/blog/massif-devoluy">Dévoluy</a></p>
+              <ul>
+                <li>Accès stations de ski</li>
+                <li>Départs randonnées</li>
+                <li>Groupes acceptés</li>
+              </ul>
+            </div>
+          </article>
+          <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600" alt="Baronnies" />
+            <div class="destination-content">
+              <h3>Baronnies Provençales</h3>
+              <p>Circuit des villages perchés des <a href="/blog/decouvrir-baronnies-provencales">Baronnies</a></p>
+              <ul>
+                <li>Villages médiévaux</li>
+                <li>Producteurs locaux</li>
+                <li>Circuits personnalisés</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <a href="/specialites/excursions" class="learn-more">Explorer nos excursions →</a>
+      </div>
+    </section>
+
+    <section class="events">
+      <div class="section-content">
+        <h2>Événements Spéciaux</h2>
+        <div class="events-grid">
+          <div class="event-card">
+            <h3>Mariages</h3>
+            <p>Service premium pour votre jour spécial dans le Buëch</p>
+            <ul>
+              <li>Transport des mariés</li>
+              <li>Navette invités</li>
+              <li>Véhicules décorés</li>
+            </ul>
+            <a href="/blog/lieux-reception-buech">Découvrir les lieux de réception →</a>
+          </div>
+          <div class="event-card">
+            <h3>Séminaires</h3>
+            <p>Transport professionnel pour vos événements d'entreprise</p>
+            <ul>
+              <li>Transferts groupes</li>
+              <li>Planning personnalisé</li>
+              <li>Facturation entreprise</li>
+            </ul>
+            <a href="/services/professionnel">En savoir plus →</a>
+          </div>
+          <div class="event-card">
+            <h3>Événements Sportifs</h3>
+            <p>Logistique pour compétitions et stages</p>
+            <ul>
+              <li>Compétitions escalade</li>
+              <li>Événements cyclistes</li>
+              <li>Trails et courses</li>
+            </ul>
+            <a href="/blog/evenements-sportifs-buech">Calendrier des événements →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Réserver Votre Transport Spécialisé"
+      subtitle="Service disponible 24h/24 et 7j/7 dans tout le Buëch"
+    />
+
+    <NewsletterSection />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2000');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 2rem;
+    margin: 0 -1rem 4rem -1rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(var(--accent-dark));
+    margin-bottom: 2rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .feature {
+    text-align: center;
+    padding: 2rem;
+    background: rgb(var(--card-bg));
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .medical-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .detail-card {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .detail-card h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .detail-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .detail-card li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .detail-card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--accent));
+  }
+
+  .transport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .transport-card {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .transport-card h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .transport-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .transport-card li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .transport-card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--accent));
+  }
+
+  .info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(var(--border-color));
+    font-style: italic;
+  }
+
+  .destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .destination-card {
+    background: rgb(var(--card-bg));
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .destination-content {
+    padding: 2rem;
+  }
+
+  .destination-content h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .destination-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .destination-content li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .destination-content li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--accent));
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .event-card {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .event-card h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .event-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .event-card li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .event-card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--accent));
+  }
+
+  .learn-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: rgb(var(--accent));
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 4rem 0;
+    background: rgb(var(--bg-secondary));
+    margin: 4rem -1rem -1rem -1rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: rgb(var(--accent-dark));
+  }
+
+  .cta-button.secondary {
+    background: transparent;
+    border: 2px solid rgb(var(--accent));
+    color: rgb(var(--accent));
+  }
+
+  .cta-button.secondary:hover {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

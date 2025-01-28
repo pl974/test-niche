@@ -1,0 +1,22 @@
+/**
+ * Thème sombre
+ * -----------
+ * Configuration des couleurs pour le thème sombre
+ */
+
+[data-theme="dark"] {
+  /* Couleurs de fond */
+  --bg-primary: 17, 24, 39;
+  --bg-secondary: 31, 41, 55;
+  --bg-tertiary: 55, 65, 81;
+
+  /* Couleurs de texte */
+  --text-primary: 243, 244, 246;
+  --text-secondary: 209, 213, 219;
+  --text-disabled: 156, 163, 175;
+
+  /* Couleurs de bordure */
+  --border-light: 75, 85, 99;
+  --border-medium: 107, 114, 128;
+  --border-dark: 156, 163, 175;
+}

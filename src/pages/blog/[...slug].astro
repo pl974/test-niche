@@ -1,0 +1,426 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import CTASection from '../../components/CTASection.astro';
+import SocialImage from '../../components/SocialImage.astro';
+import SimilarPosts from '../../components/SimilarPosts.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+
+// Récupérer tous les articles pour les recommandations
+const allPosts = await getCollection('blog');
+
+const { Content } = await post.render();
+
+const formattedDate = new Date(post.data.pubDate).toLocaleDateString('fr-FR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<Layout title={post.data.title}>
+  <SocialImage
+    title={post.data.title}
+    description={post.data.description}
+    image={post.data.heroImage}
+  />
+  <main>
+    <Hero
+      title={post.data.title}
+      subtitle={post.data.description}
+      image={post.data.heroImage}
+    />
+
+    <article class="blog-post">
+      <div class="post-meta">
+        <div class="meta-item">
+          <span class="meta-label">Publié le</span>
+          <span class="meta-value">{formattedDate}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Catégorie</span>
+          <span class="meta-value">{post.data.category}</span>
+        </div>
+        {post.data.tags && (
+          <div class="meta-item">
+            <span class="meta-label">Tags</span>
+            <div class="tags">
+              {post.data.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div class="post-content">
+        <Content />
+      </div>
+      <ShareButtons
+        url={Astro.url.href}
+        title={post.data.title}
+        description={post.data.description}
+      />
+    </article>
+
+    <SimilarPosts
+      currentPost={post}
+      allPosts={allPosts}
+      maxPosts={3}
+    />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .blog-post {
+    max-width: 800px;
+    margin: 4rem auto;
+  }
+
+  .post-meta {
+    background: rgb(var(--bg-secondary));
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .meta-item {
+    margin-bottom: 1rem;
+  }
+
+  .similar-posts {
+    border-top: 1px solid rgb(var(--border-color));
+    padding: 2rem 0;
+    margin: 2rem 0;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .post-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgb(var(--border-color));
+    transition: transform 0.3s ease;
+    height: 200px;
+  }
+
+  .post-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .post-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+
+  .post-card:hover .post-bg {
+    opacity: 0.5;
+  }
+
+  .post-card .post-content {
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.7);
+    color: white;
+  }
+
+  .post-header {
+    margin-bottom: 1rem;
+  }
+
+  .post-card .category {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .post-card h3 {
+    margin: 0.5rem 0;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .post-card .description {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    opacity: 0.9;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .post-card .read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.875rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .meta-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .meta-label {
+    font-weight: 500;
+    color: rgb(var(--accent));
+    margin-right: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+  }
+
+  .post-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: rgb(var(--text-primary));
+  }
+
+  /* Titres */
+  .post-content h1 {
+    font-size: 2.5rem;
+    color: rgb(var(--accent-dark));
+    margin: 3rem 0 1.5rem;
+    line-height: 1.2;
+  }
+
+  .post-content h2 {
+    font-size: 2rem;
+    color: rgb(var(--accent-dark));
+    margin: 2.5rem 0 1.25rem;
+    line-height: 1.3;
+  }
+
+  .post-content h3 {
+    font-size: 1.5rem;
+    color: rgb(var(--accent));
+    margin: 2rem 0 1rem;
+    line-height: 1.4;
+  }
+
+  /* Paragraphes */
+  .post-content p {
+    margin: 1.5rem 0;
+    line-height: 1.8;
+  }
+
+  /* Listes */
+  .post-content ul,
+  .post-content ol {
+    margin: 1rem 0;
+    padding-left: 2.5rem;
+  }
+
+  .post-content ul {
+    list-style: none;
+  }
+
+  .post-content ul li {
+    position: relative;
+    margin: 0.75rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .post-content ul li::before {
+    content: "•";
+    color: rgb(var(--accent));
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .post-content ol li {
+    margin: 0.75rem 0;
+    padding-left: 0.5rem;
+  }
+
+  /* Citations */
+  .post-content blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid rgb(var(--accent));
+    background: rgb(var(--bg-secondary));
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+  }
+
+  .post-content blockquote p {
+    margin: 0;
+  }
+
+  /* Code */
+  .post-content code {
+    background: rgb(var(--bg-secondary));
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: rgb(var(--accent));
+  }
+
+  .post-content pre {
+    background: rgb(var(--bg-secondary));
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .post-content pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  /* Images */
+  .post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+
+  /* Liens */
+  .post-content a {
+    color: rgb(var(--accent));
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .post-content a:hover {
+    border-bottom-color: rgb(var(--accent));
+  }
+
+  /* Tableaux */
+  .post-content table {
+    width: 100%;
+    margin: 2rem 0;
+    background: rgb(var(--card-bg));
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .post-content th {
+    background: rgb(var(--bg-secondary));
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: rgb(var(--accent));
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid rgb(var(--accent));
+  }
+
+  .post-content td {
+    padding: 1rem;
+    border-bottom: 1px solid rgb(var(--border-color));
+    color: rgb(var(--text-primary));
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .post-content tr:last-child td {
+    border-bottom: none;
+  }
+
+  .post-content tr:nth-child(even) {
+    background: rgba(var(--bg-secondary), 0.3);
+  }
+
+  .post-content tr:hover {
+    background: rgba(var(--accent), 0.03);
+    transition: background-color 0.2s ease;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .post-content {
+      font-size: 1rem;
+    }
+
+    .post-content h1 {
+      font-size: 2rem;
+    }
+
+    .post-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .post-content h3 {
+      font-size: 1.25rem;
+    }
+
+    .post-content table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .post-content th,
+    .post-content td {
+      padding: 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

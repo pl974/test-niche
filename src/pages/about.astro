@@ -1,0 +1,423 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import CTASection from '../components/CTASection.astro';
+import NewsletterSection from '../components/NewsletterSection.astro';
+
+const title = "À Propos de Taxi Buëch | Votre Taxi Local de Confiance depuis 10 ans";
+const description = "Découvrez Taxi Buëch, service de taxi professionnel dans les Hautes-Alpes. Plus de 10 ans d'expérience, transport médical conventionné, service 24/7. Une entreprise locale engagée dans le Buëch.";
+---
+
+<Layout title={title}>
+  <main>
+    <Hero
+      title="À Propos de Taxi Buëch"
+      subtitle="Votre partenaire transport de confiance dans le Buëch"
+      image="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2000"
+    />
+
+    <section class="intro">
+      <div class="section-content">
+        <h2>Notre Histoire</h2>
+        <p class="lead">Depuis plus de 10 ans, Taxi Buëch s'engage à offrir un service de transport professionnel et personnalisé aux habitants et visiteurs du Buëch. Notre connaissance approfondie du territoire et notre engagement envers la qualité de service font de nous le partenaire de confiance pour tous vos déplacements.</p>
+        
+        <FeatureGrid
+          features={[
+            {
+              icon: 'experience',
+              title: "10+ Années",
+              description: "D'expérience dans le Buëch"
+            },
+            {
+              icon: 'convention',
+              title: "Conventionné",
+              description: "Transport médical agréé"
+            },
+            {
+              icon: 'clock',
+              title: "24h/24 - 7j/7",
+              description: "Service permanent"
+            }
+          ]}
+        />
+      </div>
+    </section>
+
+    <section class="values">
+      <div class="section-content">
+        <h2>Nos Valeurs</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <h3>Professionnalisme</h3>
+            <p>Notre engagement envers l'excellence se reflète dans chaque aspect de notre service :</p>
+            <ul>
+              <li>Chauffeurs qualifiés</li>
+              <li>Formation continue</li>
+              <li>Ponctualité garantie</li>
+              <li>Service personnalisé</li>
+            </ul>
+            <a href="/blog/engagement-qualite" class="learn-more">Notre engagement →</a>
+          </div>
+
+          <div class="value-card">
+            <h3>Proximité</h3>
+            <p>Une entreprise locale au service de son territoire :</p>
+            <ul>
+              <li>Connaissance du <a href="/zones">Buëch</a></li>
+              <li>Réseau local établi</li>
+              <li>Partenariats locaux</li>
+              <li>Engagement communautaire</li>
+            </ul>
+            <a href="/blog/acteur-local" class="learn-more">Notre ancrage local →</a>
+          </div>
+
+          <div class="value-card">
+            <h3>Innovation</h3>
+            <p>Amélioration continue de nos services :</p>
+            <ul>
+              <li>Véhicules modernes</li>
+              <li>Réservation simplifiée</li>
+              <li>Suivi en temps réel</li>
+              <li>Solutions adaptées</li>
+            </ul>
+            <a href="/blog/innovation-transport" class="learn-more">Nos innovations →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="territory">
+      <div class="section-content">
+        <h2>Notre Territoire : Le Buëch</h2>
+        <div class="territory-grid">
+          <div class="territory-content">
+            <p>Le Buëch, territoire d'exception entre Alpes et Provence, est notre zone d'expertise. Nous desservons :</p>
+            <div class="territory-columns">
+              <div class="territory-column">
+                <h3>Villes Principales</h3>
+                <ul>
+                  <li><a href="/zones/taxi-laragne-monteglin">Laragne-Montéglin</a></li>
+                  <li><a href="/zones/taxi-serres">Serres</a></li>
+                  <li><a href="/zones/taxi-orpierre">Orpierre</a></li>
+                  <li><a href="/zones/taxi-garde-colombe">Garde-Colombe</a></li>
+                </ul>
+              </div>
+              <div class="territory-column">
+                <h3>Villages du Buëch</h3>
+                <ul>
+                  <li><a href="/zones/taxi-eyguians">Eyguians</a></li>
+                  <li><a href="/zones/taxi-lagrand">Lagrand</a></li>
+                  <li><a href="/zones/taxi-monetier-allemont">Monêtier-Allemont</a></li>
+                  <li><a href="/zones/taxi-trescleoux">Trescléoux</a></li>
+                </ul>
+              </div>
+            </div>
+            <a href="/zones" class="learn-more">Découvrir nos zones de service →</a>
+          </div>
+          <img 
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800"
+            alt="Paysage du Buëch"
+            class="territory-image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="section-content">
+        <h2>Nos Services</h2>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>Transport Médical</h3>
+            <p>Service conventionné pour vos soins :</p>
+            <ul>
+              <li>Agrément toutes caisses</li>
+              <li>Personnel formé</li>
+              <li>Véhicules adaptés</li>
+              <li>Service 24/7</li>
+            </ul>
+            <a href="/specialites/medical" class="learn-more">Transport médical →</a>
+          </article>
+
+          <article class="service-card">
+            <h3>Transport Touristique</h3>
+            <p>Découverte du Buëch :</p>
+            <ul>
+              <li><a href="/blog/sites-escalade-orpierre">Sites d'escalade</a></li>
+              <li><a href="/blog/villages-perches-buech">Villages perchés</a></li>
+              <li><a href="/blog/randonnees-buech">Randonnées</a></li>
+              <li>Circuits personnalisés</li>
+            </ul>
+            <a href="/specialites/excursions" class="learn-more">Excursions →</a>
+          </article>
+
+          <article class="service-card">
+            <h3>Événements Spéciaux</h3>
+            <p>Service premium sur mesure :</p>
+            <ul>
+              <li><a href="/specialites/evenements#mariages">Mariages</a></li>
+              <li><a href="/specialites/evenements#seminaires">Séminaires</a></li>
+              <li><a href="/specialites/evenements#sports">Événements sportifs</a></li>
+              <li>Transport groupes</li>
+            </ul>
+            <a href="/specialites/evenements" class="learn-more">Services événementiels →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fleet">
+      <div class="section-content">
+        <h2>Notre Flotte</h2>
+        <div class="fleet-content">
+          <p class="lead">Une flotte moderne et entretenue pour répondre à tous vos besoins de transport :</p>
+          <div class="fleet-grid">
+            <div class="fleet-card">
+              <h3>Véhicules Confort</h3>
+              <ul>
+                <li>Berlines premium</li>
+                <li>Climatisation</li>
+                <li>Wifi à bord</li>
+                <li>4 passagers max</li>
+              </ul>
+              <p>Idéal pour <a href="/specialites/liaisons">liaisons gares/aéroports</a></p>
+            </div>
+
+            <div class="fleet-card">
+              <h3>Véhicules Médicaux</h3>
+              <ul>
+                <li>Transport assis</li>
+                <li>Accès facilité</li>
+                <li>Équipement adapté</li>
+                <li>Confort optimal</li>
+              </ul>
+              <p>Pour vos <a href="/services/medical">transports médicaux</a></p>
+            </div>
+
+            <div class="fleet-card">
+              <h3>Véhicules Groupes</h3>
+              <ul>
+                <li>Monospaces</li>
+                <li>Grand coffre</li>
+                <li>8 places max</li>
+                <li>Transport matériel</li>
+              </ul>
+              <p>Parfait pour les <a href="/services/groupes">groupes</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team">
+      <div class="section-content">
+        <h2>Notre Équipe</h2>
+        <div class="team-content">
+          <p class="lead">Une équipe de chauffeurs professionnels à votre service :</p>
+          <div class="team-grid">
+            <div class="team-card">
+              <h3>Expertise</h3>
+              <ul>
+                <li>Formation continue</li>
+                <li>Connaissance locale</li>
+                <li>Premier secours</li>
+                <li>Service client</li>
+              </ul>
+            </div>
+
+            <div class="team-card">
+              <h3>Professionnalisme</h3>
+              <ul>
+                <li>Ponctualité</li>
+                <li>Courtoisie</li>
+                <li>Discrétion</li>
+                <li>Assistance</li>
+              </ul>
+            </div>
+
+            <div class="team-card">
+              <h3>Engagement</h3>
+              <ul>
+                <li>Service qualité</li>
+                <li>Sécurité</li>
+                <li>Disponibilité</li>
+                <li>Adaptabilité</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="section-content">
+        <h2>Ce que Disent Nos Clients</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial">
+            <p>"Service médical impeccable, chauffeurs attentionnés et ponctuels. Une vraie aide au quotidien."</p>
+            <cite>- Marie L., Laragne-Montéglin</cite>
+          </div>
+
+          <div class="testimonial">
+            <p>"Excellent guide pour découvrir le Buëch. Une connaissance parfaite du territoire."</p>
+            <cite>- Pierre D., touriste</cite>
+          </div>
+
+          <div class="testimonial">
+            <p>"Organisation parfaite pour notre mariage. Un grand merci à toute l'équipe !"</p>
+            <cite>- Sophie & Jean, mariés à Serres</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Réserver Votre Transport"
+      subtitle="Service disponible 24h/24 et 7j/7 dans tout le Buëch"
+      primaryText="📞 Nous Contacter"
+      primaryHref="tel:+33492000000"
+      secondaryText="📋 Demander un Devis"
+      secondaryHref="/contact"
+    />
+
+    <NewsletterSection
+      title="Restez Informé"
+      description="Recevez nos actualités et offres spéciales dans le Buëch"
+    />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section-content {
+    margin: 4rem auto;
+    max-width: 1200px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(var(--accent-dark));
+    margin-bottom: 2rem;
+  }
+
+  .lead {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: rgb(var(--text-primary));
+  }
+
+  .values-grid, .services-grid, .fleet-grid, .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .value-card, .service-card, .fleet-card, .team-card {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .value-card h3, .service-card h3, .fleet-card h3, .team-card h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .territory-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .territory-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .territory-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--accent));
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .testimonial {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+    text-align: center;
+  }
+
+  .testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  cite {
+    color: rgb(var(--accent));
+    font-weight: 500;
+  }
+
+  .learn-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: rgb(var(--accent));
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .territory-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .territory-columns {
+      grid-template-columns: 1fr;
+    }
+
+    .values-grid, .services-grid, .fleet-grid, .team-grid, .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

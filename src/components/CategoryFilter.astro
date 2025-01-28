@@ -1,0 +1,79 @@
+---
+interface Props {
+  categories: {
+    id: string;
+    title: string;
+  }[];
+}
+
+const { categories } = Astro.props;
+---
+
+<div class="blog-categories">
+  <button class="category-button active" data-category="all">Tous</button>
+  {categories.map(category => (
+    <button class="category-button" data-category={category.id}>
+      {category.title}
+    </button>
+  ))}
+</div>
+
+<style>
+  .blog-categories {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .category-button {
+    background: rgb(var(--bg-secondary));
+    border: none;
+    color: inherit;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .category-button.active {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  .category-button:hover {
+    background: rgb(var(--accent-light));
+    color: white;
+  }
+</style>
+
+<script>
+  const categoryButtons = document.querySelectorAll('.category-button');
+  let currentCategory = 'all';
+
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category;
+      if (category === currentCategory) return;
+
+      // Mettre à jour l'état actif des boutons
+      categoryButtons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+
+      // Filtrer les articles
+      const cards = document.querySelectorAll('.blog-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      currentCategory = category;
+    });
+  });
+</script>

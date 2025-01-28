@@ -1,0 +1,119 @@
+---
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<div class="modal" id={id}>
+  <div class="modal-content">
+    <button class="close-modal" data-modal-close>&times;</button>
+    <h2>{title}</h2>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: rgb(var(--text-primary));
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: rgb(var(--accent-dark));
+  }
+</style>
+
+<script>
+  // Modal functionality
+  class ModalController {
+    constructor() {
+      this.init();
+    }
+
+    init() {
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        
+        // Open modal
+        if (target.matches('[data-modal-open]')) {
+          const modalId = target.dataset.modalTarget;
+          this.openModal(modalId);
+        }
+        
+        // Close modal
+        if (target.matches('[data-modal-close]') || target.matches('.modal')) {
+          const modal = target.closest('.modal');
+          if (modal) {
+            this.closeModal(modal.id);
+          }
+        }
+      });
+
+      // Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const activeModal = document.querySelector('.modal.active');
+          if (activeModal) {
+            this.closeModal(activeModal.id);
+          }
+        }
+      });
+    }
+
+    openModal(modalId: string) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    closeModal(modalId: string) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  // Initialize modal controller
+  new ModalController();
+</script>

@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+
+const title = "Page Non Trouvée | Taxi Buëch";
+
+const suggestedPages = [
+  {
+    title: "Transport Médical",
+    description: "Service conventionné toutes caisses",
+    href: "/services/medical"
+  },
+  {
+    title: "Liaisons Gares & Aéroports",
+    description: "Transferts vers toutes destinations",
+    href: "/specialites/liaisons"
+  },
+  {
+    title: "Excursions Touristiques",
+    description: "Découverte du Buëch",
+    href: "/services/touristique"
+  },
+  {
+    title: "Transport de Groupes",
+    description: "Événements et séminaires",
+    href: "/services/groupes"
+  }
+];
+
+const commonDestinations = [
+  {
+    title: "Laragne-Montéglin",
+    href: "/zones/taxi-laragne-monteglin"
+  },
+  {
+    title: "Serres",
+    href: "/zones/taxi-serres"
+  },
+  {
+    title: "Orpierre",
+    href: "/zones/taxi-orpierre"
+  },
+  {
+    title: "Garde-Colombe",
+    href: "/zones/taxi-garde-colombe"
+  }
+];
+---
+
+<Layout title={title}>
+  <main>
+    <Hero
+      title="Page Non Trouvée"
+      subtitle="Désolé, la page que vous recherchez n'existe pas ou a été déplacée"
+      image="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000"
+    />
+
+    <section class="error-content">
+      <div class="section-content">
+        <div class="suggestions">
+          <h2>Pages Populaires</h2>
+          <div class="suggestions-grid">
+            {suggestedPages.map(page => (
+              <a href={page.href} class="suggestion-card">
+                <h3>{page.title}</h3>
+                <p>{page.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="destinations">
+          <h2>Destinations Principales</h2>
+          <div class="destinations-grid">
+            {commonDestinations.map(destination => (
+              <a href={destination.href} class="destination-link">
+                {destination.title} →
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="help-section">
+          <h2>Besoin d'Aide ?</h2>
+          <p>Vous pouvez :</p>
+          <ul>
+            <li>Retourner à <a href="/">l'accueil</a></li>
+            <li>Consulter nos <a href="/services">services</a></li>
+            <li>Voir nos <a href="/zones">zones desservies</a></li>
+            <li>Lire notre <a href="/blog">blog</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Réserver Votre Transport"
+      subtitle="Service disponible 24h/24 et 7j/7 dans tout le Buëch"
+    />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section-content {
+    margin: 4rem auto;
+    max-width: 1200px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(var(--accent-dark));
+    margin-bottom: 2rem;
+  }
+
+  .suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0 4rem;
+  }
+
+  .suggestion-card {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+
+  .suggestion-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .suggestion-card h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+
+  .destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0 4rem;
+    text-align: center;
+  }
+
+  .destination-link {
+    background: rgb(var(--bg-secondary));
+    padding: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: rgb(var(--accent));
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .destination-link:hover {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  .help-section {
+    text-align: center;
+    margin: 4rem 0;
+  }
+
+  .help-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .help-section a {
+    color: rgb(var(--accent));
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .help-section a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .suggestions-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .destinations-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .help-section ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

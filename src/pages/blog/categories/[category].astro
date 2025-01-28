@@ -1,0 +1,39 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Hero from '../../../components/Hero.astro';
+import BlogGrid from '../../../components/BlogGrid.astro';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const homeCollection = await getCollection('home');
+  const data = homeCollection[0].data;
+  
+  return data.blogCategories.map(category => ({
+    params: { category: category.id },
+    props: { category }
+  }));
+}) satisfies GetStaticPaths;
+
+const { category } = Astro.props;
+
+// Récupérer les articles de la catégorie
+const allPosts = await getCollection('blog');
+const categoryPosts = allPosts
+  .filter(post => post.data.category === category.title)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout title={`${category.title} | Blog`}>
+  <main>
+    <Hero
+      title={category.title}
+      subtitle={category.description}
+      image={category.image}
+      size="compact"
+    />
+
+    <section class="blog-posts">
+      <BlogGrid posts={categoryPosts} showPagination={false} />
+    </section>
+  </main>

@@ -1,0 +1,147 @@
+/**
+ * Theme System
+ * ------------
+ * Configuration centralisée des couleurs et variables du thème
+ * Permet une personnalisation facile via des variables CSS
+ */
+
+:root {
+  /* Couleurs primaires */
+  --primary-50: 236, 253, 245;  /* Vert très clair */
+  --primary-100: 209, 250, 229;
+  --primary-200: 167, 243, 208;
+  --primary-300: 110, 231, 183;
+  --primary-400: 52, 211, 153;
+  --primary-500: 16, 185, 129;  /* Couleur principale */
+  --primary-600: 5, 150, 105;
+  --primary-700: 4, 120, 87;
+  --primary-800: 6, 95, 70;
+  --primary-900: 6, 78, 59;     /* Vert très foncé */
+
+  /* Couleurs secondaires */
+  --secondary-50: 240, 249, 255;  /* Bleu très clair */
+  --secondary-100: 224, 242, 254;
+  --secondary-200: 186, 230, 253;
+  --secondary-300: 125, 211, 252;
+  --secondary-400: 56, 189, 248;
+  --secondary-500: 14, 165, 233;  /* Couleur secondaire */
+  --secondary-600: 2, 132, 199;
+  --secondary-700: 3, 105, 161;
+  --secondary-800: 7, 89, 133;
+  --secondary-900: 12, 74, 110;   /* Bleu très foncé */
+
+  /* Couleurs de texte */
+  --text-primary: 17, 24, 39;     /* Texte principal */
+  --text-secondary: 107, 114, 128; /* Texte secondaire */
+  --text-disabled: 156, 163, 175;  /* Texte désactivé */
+
+  /* Couleurs de fond */
+  --bg-primary: 255, 255, 255;    /* Fond principal */
+  --bg-secondary: 249, 250, 251;  /* Fond secondaire */
+  --bg-tertiary: 243, 244, 246;   /* Fond tertiaire */
+
+  /* Couleurs de bordure */
+  --border-light: 229, 231, 235;  /* Bordure claire */
+  --border-medium: 209, 213, 219; /* Bordure moyenne */
+  --border-dark: 156, 163, 175;   /* Bordure foncée */
+
+  /* Couleurs d'état */
+  --success: 34, 197, 94;         /* Succès */
+  --warning: 234, 179, 8;         /* Avertissement */
+  --error: 239, 68, 68;           /* Erreur */
+  --info: 59, 130, 246;           /* Information */
+
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+
+  /* Rayons de bordure */
+  --radius-sm: 0.125rem;
+  --radius: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* Classes utilitaires pour les couleurs de fond */
+.bg-primary {
+  background-color: rgb(var(--primary-500));
+}
+
+.bg-secondary {
+  background-color: rgb(var(--secondary-500));
+}
+
+.bg-light {
+  background-color: rgb(var(--bg-primary));
+}
+
+/* Classes utilitaires pour les couleurs de texte */
+.text-primary {
+  color: rgb(var(--text-primary));
+}
+
+.text-secondary {
+  color: rgb(var(--text-secondary));
+}
+
+.text-disabled {
+  color: rgb(var(--text-disabled));
+}
+
+/* Classes utilitaires pour les bordures */
+.border-light {
+  border-color: rgb(var(--border-light));
+}
+
+.border-medium {
+  border-color: rgb(var(--border-medium));
+}
+
+.border-dark {
+  border-color: rgb(var(--border-dark));
+}
+
+/* Classes utilitaires pour les états */
+.text-success {
+  color: rgb(var(--success));
+}
+
+.text-warning {
+  color: rgb(var(--warning));
+}
+
+.text-error {
+  color: rgb(var(--error));
+}
+
+.text-info {
+  color: rgb(var(--info));
+}
+
+/* Classes utilitaires pour les ombres */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}

@@ -1,0 +1,87 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  primaryText?: string;
+  primaryHref?: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+}
+
+const {
+  title,
+  subtitle,
+  primaryText = "📞 Appeler maintenant",
+  primaryHref = "tel:+33492000000",
+  secondaryText = "✉️ Demander un devis",
+  secondaryHref = "/contact"
+} = Astro.props;
+---
+
+<section class="cta-section">
+  <h2>{title}</h2>
+  {subtitle && <p>{subtitle}</p>}
+  <div class="cta-buttons">
+    <a href={primaryHref} class="cta-button">{primaryText}</a>
+    <a href={secondaryHref} class="cta-button secondary">{secondaryText}</a>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgb(var(--bg-secondary));
+    margin: 4rem -1rem -1rem -1rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: rgb(var(--accent-dark));
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+    color: rgb(var(--text-primary));
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: rgb(var(--accent-dark));
+  }
+
+  .cta-button.secondary {
+    background: transparent;
+    border: 2px solid rgb(var(--accent));
+    color: rgb(var(--accent));
+  }
+
+  .cta-button.secondary:hover {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .cta-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

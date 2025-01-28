@@ -1,0 +1,87 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  placeholder?: string;
+}
+
+const {
+  title = "Restez Informé",
+  description = "Recevez nos actualités et bons plans dans le Buëch",
+  buttonText = "S'abonner",
+  placeholder = "Votre email"
+} = Astro.props;
+---
+
+<section class="newsletter">
+  <div class="section-content">
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder={placeholder} required />
+      <button type="submit">{buttonText}</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    background: rgb(var(--bg-secondary));
+    padding: 4rem 2rem;
+    margin: 4rem -1rem -1rem -1rem;
+    text-align: center;
+  }
+
+  .section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: rgb(var(--accent-dark));
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+    color: rgb(var(--text-primary));
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 2rem auto 0;
+  }
+
+  input {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid rgb(var(--border-color));
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  button {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background: rgb(var(--accent-dark));
+  }
+
+  @media (max-width: 768px) {
+    .newsletter-form {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import * as Icons from 'lucide-astro';
+
+interface Feature {
+  icon?: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  features: Feature[];
+}
+
+const { features } = Astro.props;
+
+const getIcon = (iconName: string) => {
+  const Icon = Icons[iconName as keyof typeof Icons];
+  return Icon || Icons.HelpCircle;
+};
+---
+
+<div class="features-grid">
+  {features.map(feature => (
+    <div class="feature">
+      {feature.icon && (
+        <div class="icon">
+          {(() => {
+            const Icon = getIcon(feature.icon);
+            return <Icon size={48} color="#0084F8" />;
+          })()}
+        </div>
+      )}
+      <h3>{feature.title}</h3>
+      <p>{feature.description}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .feature {
+    text-align: center;
+    padding: 2rem;
+    background: rgb(var(--card-bg));
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+  }
+
+  .icon {
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    color: rgb(var(--text-primary));
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+interface Props {
+  type: 'Organization' | 'Article' | 'BreadcrumbList';
+  data: any;
+}
+
+const { type, data } = Astro.props;
+
+const schemas = {
+  Organization: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Taxi Buëch",
+    "url": "https://votresite.com",
+    "logo": "https://votresite.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+33-492-000000",
+      "contactType": "customer service"
+    }
+  },
+  Article: {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": data.title,
+    "description": data.description,
+    "image": data.image,
+    "datePublished": data.pubDate,
+    "author": {
+      "@type": "Organization",
+      "name": "Taxi Buëch"
+    }
+  },
+  BreadcrumbList: {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": data.items.map((item: any, index: number) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url
+    }))
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemas[type])} />

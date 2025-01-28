@@ -1,0 +1,187 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  currentPost: CollectionEntry<'blog'>;
+  allPosts: CollectionEntry<'blog'>[];
+  maxPosts?: number;
+}
+
+const { currentPost, allPosts, maxPosts = 3 } = Astro.props;
+
+// Fonction pour calculer le score de similarité entre deux articles
+function getSimilarityScore(post1: CollectionEntry<'blog'>, post2: CollectionEntry<'blog'>): number {
+  let score = 0;
+  
+  // Même catégorie = +3 points
+  if (post1.data.category === post2.data.category) {
+    score += 3;
+  }
+  
+  // Tags communs = +2 points par tag
+  const post1Tags = post1.data.tags || [];
+  const post2Tags = post2.data.tags || [];
+  const commonTags = post1Tags.filter(tag => post2Tags.includes(tag));
+  score += commonTags.length * 2;
+  
+  // Proximité temporelle
+  const timeDiff = Math.abs(post1.data.pubDate.getTime() - post2.data.pubDate.getTime());
+  const daysDiff = timeDiff / (1000 * 60 * 60 * 24);
+  if (daysDiff < 30) score += 1; // Articles du même mois
+  
+  // Analyse des titres pour trouver des mots-clés communs
+  const words1 = post1.data.title.toLowerCase().split(' ');
+  const words2 = post2.data.title.toLowerCase().split(' ');
+  const commonWords = words1.filter(word => 
+    word.length > 3 && words2.includes(word)
+  );
+  score += commonWords.length;
+  
+  return score;
+}
+
+// Trouver les articles similaires
+const similarPosts = allPosts
+  .filter(post => post.slug !== currentPost.slug) // Exclure l'article courant
+  .map(post => ({
+    post,
+    score: getSimilarityScore(currentPost, post)
+  }))
+  .filter(p => p.score > 0) // Garder uniquement les articles avec un score positif
+  .sort((a, b) => b.score - a.score) // Trier par score décroissant
+  .slice(0, maxPosts); // Limiter le nombre d'articles
+---
+
+{similarPosts.length > 0 && (
+  <section class="similar-posts">
+    <h2>Articles Similaires</h2>
+    <div class="posts-grid">
+      {similarPosts.map(({ post, score }) => (
+        <article class="post-card">
+          <div 
+            class="post-bg"
+            style={`background-image: url(${post.data.heroImage})`}
+          ></div>
+          <div class="post-content">
+            <div class="post-header">
+              <span class="category">{post.data.category}</span>
+              <h3>{post.data.title}</h3>
+            </div>
+            <p class="description">{post.data.description}</p>
+            <div class="post-footer">
+              <span class="date">{new Date(post.data.pubDate).toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}</span>
+              <a href={`/blog/${post.slug}`} class="read-more">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .similar-posts {
+    margin: 4rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgb(var(--border-color));
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: rgb(var(--accent-dark));
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .post-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgb(var(--border-color));
+    transition: transform 0.3s ease;
+    background: rgb(var(--card-bg));
+    height: 100%;
+  }
+
+  .post-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .post-bg {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .category {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: rgb(var(--text-primary));
+    margin: 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgb(var(--text-secondary));
+    margin: 1rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .date {
+    font-size: 0.9rem;
+    color: rgb(var(--text-secondary));
+  }
+
+  .read-more {
+    color: rgb(var(--accent));
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .read-more:hover {
+    color: rgb(var(--accent-dark));
+  }
+
+  @media (max-width: 768px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

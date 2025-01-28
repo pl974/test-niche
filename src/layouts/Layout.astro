@@ -1,0 +1,194 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Navigation from '../components/Navigation.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import { getCollection } from 'astro:content';
+import '../styles/theme.css';
+import '../styles/themes/default.css';
+import '../styles/themes/dark.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+
+// Récupérer les données pour le footer
+const homeCollection = await getCollection('home');
+const data = homeCollection[0].data;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description || "Description par défaut"} />
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Taxi Buëch" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description || "Description par défaut"} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/images/social-share.jpg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:locale" content="fr_FR" />
+		<meta property="og:site_name" content="Taxi Buëch" />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@taxibuech" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description || "Description par défaut"} />
+		<meta name="twitter:image" content="/images/social-share.jpg" />
+		<meta name="twitter:image:alt" content="Taxi Buëch - Transport dans les Hautes-Alpes" />
+		<title>{title}</title>
+		<script>
+			// Initialiser le thème au chargement
+			const savedTheme = localStorage.getItem('theme') || 'light';
+			document.documentElement.dataset.theme = savedTheme;
+		</script>
+	</head>
+	<body class="pt-16">
+		<header class="site-header">
+			<Navigation />
+			<ThemeToggle />
+		</header>
+		<slot />
+		<footer class="site-footer">
+			<div class="footer-content">
+				<div class="footer-section">
+					<h3>Catégories</h3>
+					<ul>
+						{data.blogCategories.map(category => (
+							<li>
+								<a href={`/blog/categories/${category.id}`}>{category.title}</a>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h3>Contact</h3>
+					<ul>
+						<li>
+							<a href="tel:+33492000000">📞 04 92 00 00 00</a>
+						</li>
+						<li>
+							<a href="mailto:contact@example.com">✉️ contact@example.com</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h3>Informations</h3>
+					<ul>
+						<li>
+							<a href="/mentions-legales">Mentions légales</a>
+						</li>
+						<li>
+							<a href="/conditions-generales">Conditions générales</a>
+						</li>
+						<li>
+							<a href="/politique-confidentialite">Politique de confidentialité</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; {new Date().getFullYear()} Template - Tous droits réservés</p>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--accent: 41, 128, 185;
+		--accent-light: 133, 193, 233;
+		--accent-dark: 20, 60, 90;
+		--text-primary: 33, 37, 41;
+		--bg-primary: 255, 255, 255;
+		--bg-secondary: 241, 245, 249;
+		--card-bg: 248, 250, 252;
+		--border-color: 226, 232, 240;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: rgb(var(--bg-primary));
+		scroll-behavior: smooth;
+	}
+	body {
+		margin: 0;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+
+	.site-footer {
+		background: rgb(var(--bg-secondary));
+		padding: 4rem 2rem 2rem;
+		margin-top: 4rem;
+	}
+
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	.footer-section h3 {
+		color: rgb(var(--accent));
+		margin-bottom: 1.5rem;
+		font-size: 1.2rem;
+	}
+
+	.footer-section ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.footer-section li {
+		margin-bottom: 0.75rem;
+	}
+
+	.footer-section a {
+		color: rgb(var(--text-primary));
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.footer-section a:hover {
+		color: rgb(var(--accent));
+	}
+
+	.footer-bottom {
+		text-align: center;
+		padding-top: 2rem;
+		border-top: 1px solid rgb(var(--border-color));
+		color: rgb(var(--text-primary));
+		opacity: 0.8;
+		font-size: 0.9rem;
+	}
+</style>

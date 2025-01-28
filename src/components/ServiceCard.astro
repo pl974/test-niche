@@ -1,0 +1,106 @@
+---
+import ClockIcon from './icons/ClockIcon.astro';
+import ComfortIcon from './icons/ComfortIcon.astro';
+import ConventionIcon from './icons/ConventionIcon.astro';
+import ExperienceIcon from './icons/ExperienceIcon.astro';
+import PunctualityIcon from './icons/PunctualityIcon.astro';
+import VehicleIcon from './icons/VehicleIcon.astro';
+import PriceIcon from './icons/PriceIcon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  icon?: 'clock' | 'comfort' | 'convention' | 'experience' | 'punctuality' | 'vehicle' | 'price';
+  href: string;
+  features?: string[];
+}
+
+const { title, description, icon, href, features } = Astro.props;
+
+const IconComponents = {
+  clock: ClockIcon,
+  comfort: ComfortIcon,
+  convention: ConventionIcon,
+  experience: ExperienceIcon,
+  punctuality: PunctualityIcon,
+  vehicle: VehicleIcon,
+  price: PriceIcon
+};
+---
+
+<article class="service-card">
+  {icon && (
+    <div class="icon">
+      {(() => {
+        const IconComponent = IconComponents[icon];
+        return <IconComponent />;
+      })()}
+    </div>
+  )}
+  <h3>{title}</h3>
+  <p>{description}</p>
+  {features && features.length > 0 && (
+    <ul>
+      {features.map(feature => (
+        <li>{feature}</li>
+      ))}
+    </ul>
+  )}
+  <a href={href} class="learn-more">En savoir plus →</a>
+</article>
+
+<style>
+  .service-card {
+    background: rgb(var(--card-bg));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border-color));
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .icon {
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  p {
+    color: rgb(var(--text-primary));
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--accent));
+  }
+
+  .learn-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: rgb(var(--accent));
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>

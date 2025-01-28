@@ -1,0 +1,188 @@
+{
+  "title": "{{BRAND_NAME}}",
+  "subtitle": "{{MAIN_VALUE_PROPOSITION}}",
+  "description": "{{META_DESCRIPTION}}",
+  "blogCategories": [
+    {
+      "id": "transport-medical",
+      "title": "Transport Médical",
+      "description": "Tout savoir sur le transport médical conventionné dans le Buëch",
+      "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600",
+      "icon": "Stethoscope"
+    },
+    {
+      "id": "decouverte-buech",
+      "title": "Découverte du Buëch",
+      "description": "Explorez les trésors cachés de notre territoire",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600",
+      "icon": "Mountain"
+    },
+    {
+      "id": "evenements",
+      "title": "Événements & Actualités",
+      "description": "L'agenda des événements et actualités du Buëch",
+      "image": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600",
+      "icon": "Calendar"
+    },
+    {
+      "id": "guides-pratiques",
+      "title": "Guides Pratiques",
+      "description": "Conseils et informations pratiques pour vos déplacements",
+      "image": "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=600",
+      "icon": "BookOpen"
+    },
+    {
+      "id": "patrimoine-culture",
+      "title": "Patrimoine & Culture",
+      "description": "Histoire et culture du Buëch",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600",
+      "icon": "Landmark"
+    },
+    {
+      "id": "sports-loisirs",
+      "title": "Sports & Loisirs",
+      "description": "Activités sportives et de loisirs dans le Buëch",
+      "image": "https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=600",
+      "icon": "Mountain"
+    }
+  ],
+  "heroImage": "{{HERO_IMAGE_URL}}",
+  "features": [
+    {
+      "icon": "Shield",
+      "title": "{{TRUST_FEATURE_1}}",
+      "description": "{{TRUST_DESCRIPTION_1}}"
+    },
+    {
+      "icon": "Award",
+      "title": "{{TRUST_FEATURE_2}}",
+      "description": "{{TRUST_DESCRIPTION_2}}"
+    },
+    {
+      "icon": "Star",
+      "title": "{{TRUST_FEATURE_3}}",
+      "description": "{{TRUST_DESCRIPTION_3}}"
+    }
+  ],
+  "mainServices": [
+    {
+      "id": "service1",
+      "title": "{{SERVICE_1_TITLE}}",
+      "description": "{{SERVICE_1_DESCRIPTION}}",
+      "icon": "{{SERVICE_1_ICON}}",
+      "link": {
+        "text": "En savoir plus →",
+        "url": "/services/service1"
+      }
+    },
+    {
+      "id": "service2",
+      "title": "{{SERVICE_2_TITLE}}",
+      "description": "{{SERVICE_2_DESCRIPTION}}",
+      "icon": "{{SERVICE_2_ICON}}",
+      "link": {
+        "text": "Découvrir →",
+        "url": "/services/service2"
+      }
+    }
+  ],
+  "aboutSection": {
+    "title": "{{ABOUT_TITLE}}",
+    "description": "{{ABOUT_DESCRIPTION}}",
+    "image": "{{ABOUT_IMAGE}}",
+    "link": {
+      "text": "Notre histoire →",
+      "url": "/about"
+    }
+  },
+  "mainCategories": [
+    {
+      "title": "{{CATEGORY_1_TITLE}}",
+      "description": "{{CATEGORY_1_DESCRIPTION}}",
+      "image": "{{CATEGORY_1_IMAGE}}",
+      "link": "/categories/category1"
+    },
+    {
+      "title": "{{CATEGORY_2_TITLE}}",
+      "description": "{{CATEGORY_2_DESCRIPTION}}",
+      "image": "{{CATEGORY_2_IMAGE}}",
+      "link": "/categories/category2"
+    },
+    {
+      "title": "{{CATEGORY_3_TITLE}}",
+      "description": "{{CATEGORY_3_DESCRIPTION}}",
+      "image": "{{CATEGORY_3_IMAGE}}",
+      "link": "/categories/category3"
+    }
+  ],
+  "whyChooseUs": {
+    "title": "Pourquoi Nous Choisir ?",
+    "subtitle": "{{WHY_CHOOSE_US_SUBTITLE}}",
+    "features": [
+      {
+        "icon": "Trophy",
+        "title": "{{ADVANTAGE_1_TITLE}}",
+        "description": "{{ADVANTAGE_1_DESCRIPTION}}"
+      },
+      {
+        "icon": "CheckCircle",
+        "title": "{{ADVANTAGE_2_TITLE}}",
+        "description": "{{ADVANTAGE_2_DESCRIPTION}}"
+      },
+      {
+        "icon": "HeartHandshake",
+        "title": "{{ADVANTAGE_3_TITLE}}",
+        "description": "{{ADVANTAGE_3_DESCRIPTION}}"
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "text": "{{TESTIMONIAL_1_TEXT}}",
+      "author": "{{TESTIMONIAL_1_AUTHOR}}",
+      "avatar": "{{TESTIMONIAL_1_AVATAR}}",
+      "rating": 5
+    },
+    {
+      "text": "{{TESTIMONIAL_2_TEXT}}",
+      "author": "{{TESTIMONIAL_2_AUTHOR}}",
+      "avatar": "{{TESTIMONIAL_2_AVATAR}}",
+      "rating": 5
+    }
+  ],
+  "contact": {
+    "title": "{{CONTACT_CTA_TITLE}}",
+    "description": "{{CONTACT_CTA_DESCRIPTION}}",
+    "methods": [
+      {
+        "type": "primary",
+        "text": "{{PRIMARY_CONTACT_TEXT}}",
+        "icon": "{{PRIMARY_CONTACT_ICON}}",
+        "link": "{{PRIMARY_CONTACT_LINK}}"
+      },
+      {
+        "type": "secondary",
+        "text": "{{SECONDARY_CONTACT_TEXT}}",
+        "icon": "{{SECONDARY_CONTACT_ICON}}",
+        "link": "{{SECONDARY_CONTACT_LINK}}"
+      }
+    ]
+  },
+  "quickLinks": [
+    {
+      "title": "{{QUICK_LINK_1_TITLE}}",
+      "description": "{{QUICK_LINK_1_DESCRIPTION}}",
+      "link": "{{QUICK_LINK_1_URL}}"
+    },
+    {
+      "title": "{{QUICK_LINK_2_TITLE}}",
+      "description": "{{QUICK_LINK_2_DESCRIPTION}}",
+      "link": "{{QUICK_LINK_2_URL}}"
+    },
+    {
+      "title": "{{QUICK_LINK_3_TITLE}}",
+      "description": "{{QUICK_LINK_3_DESCRIPTION}}",
+      "link": "{{QUICK_LINK_3_URL}}"
+    }
+  ]
+}

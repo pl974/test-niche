@@ -1,0 +1,33 @@
+---
+import { getImagePath, handleImageError, type ImageCategory } from '../utils/images';
+
+interface Props {
+  src: string;
+  alt: string;
+  category: ImageCategory;
+  class?: string;
+}
+
+const { src, alt, category, class: className } = Astro.props;
+
+const imagePath = getImagePath(src, category);
+---
+
+<img
+  src={imagePath}
+  alt={alt}
+  class={className}
+  onerror={`handleImageError(event, '${category}')`}
+/>
+
+<script>
+  import { handleImageError } from '../utils/images';
+  window.handleImageError = handleImageError;
+</script>
+
+<style>
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
