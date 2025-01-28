@@ -1,123 +1,174 @@
-
-  VITE v5.4.8  ready in 6392 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-12:31:19 [vite] hmr update /src/components/GithubRepos.tsx, /src/index.css
-^C
-
-~/project 6m 52s
-❯ npx vite build
-vite v5.4.8 building for production...
-✓ 1622 modules transformed.
-dist/index.html                    0.46 kB │ gzip:   0.30 kB
-dist/assets/index--y6c5t1Z.css    10.83 kB │ gzip:   2.79 kB
-dist/assets/browser-Bq6AWtK-.js    0.30 kB │ gzip:   0.25 kB
-dist/assets/index-DEb9biYz.js    403.98 kB │ gzip: 109.75 kB
-✓ built in 17.68s
-
-~/project 27s
-❯ npm run dev
-
-> vite-react-typescript-starter@0.0.0 dev
-> vite
-
-
-  VITE v5.4.8  ready in 5674 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-12:48:20 [vite] hmr update /src/components/GithubRepos.tsx, /src/index.css
-12:48:21 [vite] Internal server error: /home/project/src/components/GithubRepos.tsx: Identifier 'session' has already been declared. (96:24)
-
-  94 |           return;
-  95 |         }
-> 96 |         const { data: { session } } = await supabase.auth.getSession();
-     |                         ^
-  97 |         
-  98 |         if (!session?.provider_token) {
-  99 |           setError('Please connect with GitHub to view your repositories');
-  Plugin: vite:react-babel
-  File: /home/project/src/components/GithubRepos.tsx:96:24
-  94 |            return;
-  95 |          }
-  96 |          const { data: { session } } = await supabase.auth.getSession();
-     |                          ^
-  97 |          
-  98 |          if (!session?.provider_token) {
-      at constructor (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:362:19)
-      at TypeScriptParserMixin.raise (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:3259:19)
-      at TypeScriptScopeHandler.checkRedeclarationInScope (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:1507:19)
-      at TypeScriptScopeHandler.declareName (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:1473:12)
-      at TypeScriptScopeHandler.declareName (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:6927:11)
-      at TypeScriptParserMixin.declareNameFromIdentifier (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7350:16)
-      at TypeScriptParserMixin.checkIdentifier (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7346:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7287:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7327:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7323:16)
-12:48:27 [vite] Pre-transform error: /home/project/src/components/GithubRepos.tsx: Identifier 'session' has already been declared. (96:24)
-
-  94 |           return;
-  95 |         }
-> 96 |         const { data: { session } } = await supabase.auth.getSession();
-     |                         ^
-  97 |         
-  98 |         if (!session?.provider_token) {
-  99 |           setError('Please connect with GitHub to view your repositories');
-12:48:29 [vite] Internal server error: /home/project/src/components/GithubRepos.tsx: Identifier 'session' has already been declared. (96:24)
-
-  94 |           return;
-  95 |         }
-> 96 |         const { data: { session } } = await supabase.auth.getSession();
-     |                         ^
-  97 |         
-  98 |         if (!session?.provider_token) {
-  99 |           setError('Please connect with GitHub to view your repositories');
-  Plugin: vite:react-babel
-  File: /home/project/src/components/GithubRepos.tsx:96:24
-  94 |            return;
-  95 |          }
-  96 |          const { data: { session } } = await supabase.auth.getSession();
-     |                          ^
-  97 |          
-  98 |          if (!session?.provider_token) {
-      at constructor (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:362:19)
-      at TypeScriptParserMixin.raise (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:3259:19)
-      at TypeScriptScopeHandler.checkRedeclarationInScope (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:1507:19)
-      at TypeScriptScopeHandler.declareName (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:1473:12)
-      at TypeScriptScopeHandler.declareName (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:6927:11)
-      at TypeScriptParserMixin.declareNameFromIdentifier (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7350:16)
-      at TypeScriptParserMixin.checkIdentifier (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7346:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7287:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7327:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7323:16)
-12:48:53 [vite] Internal server error: /home/project/src/components/GithubRepos.tsx: Identifier 'session' has already been declared. (96:24)
-
-  94 |           return;
-  95 |         }
-> 96 |         const { data: { session } } = await supabase.auth.getSession();
-     |                         ^
-  97 |         
-  98 |         if (!session?.provider_token) {
-  99 |           setError('Please connect with GitHub to view your repositories');
-  Plugin: vite:react-babel
-  File: /home/project/src/components/GithubRepos.tsx:96:24
-  94 |            return;
-  95 |          }
-  96 |          const { data: { session } } = await supabase.auth.getSession();
-     |                          ^
-  97 |          
-  98 |          if (!session?.provider_token) {
-      at constructor (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:362:19)
-      at TypeScriptParserMixin.raise (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:3259:19)
-      at TypeScriptScopeHandler.checkRedeclarationInScope (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:1507:19)
-      at TypeScriptScopeHandler.declareName (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:1473:12)
-      at TypeScriptScopeHandler.declareName (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:6927:11)
-      at TypeScriptParserMixin.declareNameFromIdentifier (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7350:16)
-      at TypeScriptParserMixin.checkIdentifier (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7346:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7287:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7327:12)
-      at TypeScriptParserMixin.checkLVal (file:///home/project/node_modules/@babel/parser/lib/index.js#cjs:7323:16) (x2)
- 
+{
+  "title": "Allofsooq - Voyage & Découvertes",
+  "subtitle": "Votre guide pour explorer le monde et vivre des expériences uniques",
+  "description": "Allofsooq est votre plateforme dédiée aux voyages, à la découverte de la nature, aux activités de loisirs et aux expériences gastronomiques. Trouvez des conseils, des guides et des idées pour vos prochaines aventures.",
+  "blogCategories": [
+    {
+      "id": "voyage-tourisme",
+      "title": "Voyage & Tourisme",
+      "description": "Découvrez des destinations incroyables à travers le monde, des villes aux villages pittoresques.",
+      "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=600",
+      "icon": "Globe"
+    },
+    {
+      "id": "sport-loisirs",
+      "title": "Sport & Loisirs",
+      "description": "Explorez des activités sportives et de loisirs pour rendre vos voyages inoubliables.",
+      "image": "https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=600",
+      "icon": "Hiking"
+    },
+    {
+      "id": "nature",
+      "title": "Nature",
+      "description": "Partez à la découverte des merveilles naturelles et des destinations écotouristiques.",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600",
+      "icon": "Tree"
+    },
+    {
+      "id": "gastronomie",
+      "title": "Gastronomie",
+      "description": "Dégustez les saveurs locales et explorez les spécialités culinaires du monde entier.",
+      "image": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600",
+      "icon": "Utensils"
+    }
+  ],
+  "heroImage": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=1200",
+  "features": [
+    {
+      "icon": "Shield",
+      "title": "Conseils de Voyage Fiables",
+      "description": "Des informations vérifiées pour des voyages en toute sécurité."
+    },
+    {
+      "icon": "Award",
+      "title": "Destinations Uniques",
+      "description": "Découvrez des lieux hors des sentiers battus."
+    },
+    {
+      "icon": "Star",
+      "title": "Expériences Authentiques",
+      "description": "Vivez des expériences culturelles et culinaires mémorables."
+    }
+  ],
+  "mainServices": [
+    {
+      "id": "service1",
+      "title": "Guides de Voyage",
+      "description": "Des guides détaillés pour planifier vos aventures.",
+      "icon": "Map",
+      "link": {
+        "text": "En savoir plus →",
+        "url": "/services/guides-voyage"
+      }
+    },
+    {
+      "id": "service2",
+      "title": "Conseils Pratiques",
+      "description": "Astuces pour voyager malin et sans stress.",
+      "icon": "Lightbulb",
+      "link": {
+        "text": "Découvrir →",
+        "url": "/services/conseils-pratiques"
+      }
+    }
+  ],
+  "aboutSection": {
+    "title": "À Propos de Nous",
+    "description": "Allofsooq est une plateforme dédiée aux voyageurs curieux, offrant des conseils, des guides et des idées pour explorer le monde.",
+    "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=800",
+    "link": {
+      "text": "Notre histoire →",
+      "url": "/about"
+    }
+  },
+  "mainCategories": [
+    {
+      "title": "Voyage & Tourisme",
+      "description": "Explorez nos guides de destinations populaires et insolites.",
+      "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=600",
+      "link": "/categories/voyage-tourisme"
+    },
+    {
+      "title": "Nature",
+      "description": "Découvrez les merveilles naturelles et les destinations écotouristiques.",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600",
+      "link": "/categories/nature"
+    },
+    {
+      "title": "Gastronomie",
+      "description": "Dégustez les saveurs locales et explorez les spécialités culinaires.",
+      "image": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600",
+      "link": "/categories/gastronomie"
+    }
+  ],
+  "whyChooseUs": {
+    "title": "Pourquoi Choisir Allofsooq ?",
+    "subtitle": "Votre partenaire de voyage pour des expériences inoubliables",
+    "features": [
+      {
+        "icon": "Trophy",
+        "title": "Expertise",
+        "description": "Des années d'expérience dans le domaine du voyage."
+      },
+      {
+        "icon": "CheckCircle",
+        "title": "Fiabilité",
+        "description": "Des informations vérifiées et à jour."
+      },
+      {
+        "icon": "HeartHandshake",
+        "title": "Engagement",
+        "description": "Nous nous engageons à rendre vos voyages mémorables."
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "text": "Allofsooq m'a aidé à découvrir des destinations incroyables que je n'aurais jamais trouvées seul !",
+      "author": "Jean D.",
+      "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+      "rating": 5
+    },
+    {
+      "text": "Les guides pratiques sont très utiles pour organiser mes voyages en toute sérénité.",
+      "author": "Marie L.",
+      "avatar": "https://randomuser.me/api/portraits/women/2.jpg",
+      "rating": 5
+    }
+  ],
+  "contact": {
+    "title": "Contactez-Nous",
+    "description": "Vous avez des questions ou besoin de conseils ? Nous sommes là pour vous aider.",
+    "methods": [
+      {
+        "type": "primary",
+        "text": "Envoyer un message",
+        "icon": "MessageCircle",
+        "link": "/contact"
+      },
+      {
+        "type": "secondary",
+        "text": "Nous appeler",
+        "icon": "Phone",
+        "link": "tel:+33123456789"
+      }
+    ]
+  },
+  "quickLinks": [
+    {
+      "title": "Destinations Populaires",
+      "description": "Découvrez nos destinations les plus prisées.",
+      "link": "/destinations-populaires"
+    },
+    {
+      "title": "Conseils pour Voyager",
+      "description": "Tous nos conseils pour un voyage réussi.",
+      "link": "/conseils-voyage"
+    },
+    {
+      "title": "À Propos de Nous",
+      "description": "En savoir plus sur Allofsooq.",
+      "link": "/about"
+    }
+  ]
+}
